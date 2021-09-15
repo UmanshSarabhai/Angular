@@ -1,0 +1,36 @@
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 90%;
+    }
+    
+    th {
+        height: 50px;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>UserID</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+    </tr>
+
+    <tr *ngFor="let com of lstcomments">
+        <td>{{com.userId}}</td>
+        <td>{{com.id}}</td>
+        <td>{{com.title}}</td>
+        <td>{{com.body}}</td>
+
+    </tr>
+
+</table>
+<br>
+<br>
