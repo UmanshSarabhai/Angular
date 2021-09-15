@@ -24,9 +24,18 @@
     Employee Name:
     <input type="text" ngModel name="EmployeeNAME" placeholder="Enter name"><br><br> Employee Address:
     <input type="text" ngModel name="EmployeeADR" placeholder="Enter Address"><br><br> Employee PhoneNumber:
-    <input type="text" ngModel name="EmployeeNO" placeholder="Enter ContactNumber"><br><br> Employee Email:
-    <input type="text" name="email" ngModel placeholder="Enter Email"><br><br> Employee DOB:
+    <input type="text" ngModel name="EmployeeNO" placeholder="Enter ContactNumber"><br><br>
+    <div class="form-group">
+        <label for="email"> Employee Email:</label>
+        <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" name="email" ngModel #emailref="ngModel">
+        <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="alert alert-danger">
+            <div [hidden]="!emailref.errors?.pattern">
+                Invalid pattern
+            </div>
+        </div>
+    </div><br><br> Employee DOB:
     <input type="date" ngModel name="EmployeeDOB" placeholder="Enter DOB"><br><br>
+
 
     <button>Submit</button>
 </form>
