@@ -19,12 +19,15 @@
         margin: auto;
         display: block;
     }
+   input.ng-invalid {
+        border-color: red;
+    }
 </style>
 <form #basicForm="ngForm" (ngSubmit)="getValues(basicForm.value)">
     Employee Name:
     <input type="text" ngModel name="EmployeeNAME" placeholder="Enter name"><br><br> Employee Address:
     <input type="text" ngModel name="EmployeeADR" placeholder="Enter Address"><br><br> Employee PhoneNumber:
-    <input type="text" ngModel name="EmployeeNO" placeholder="Enter ContactNumber"><br><br>
+    <input type="text" ngModel name="EmployeeNO" required minlength="10" maxlength="10" pattern="^[0-9]+$" placeholder="Enter Phone Number"><br><br>
     <div class="form-group">
         <label for="email"> Employee Email:</label>
         <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" name="email" ngModel #emailref="ngModel">
